@@ -4,7 +4,6 @@ import "./App.css";
 import axios from "axios";
 
 export default function App() {
-  let [loaded, setLoaded] = useState(false);
   let [city, setCity] = useState("");
   let [temperature, setTemperature] = useState(null);
   let [humidity, setHumidity] = useState(null);
@@ -21,7 +20,6 @@ export default function App() {
   }
 
   function showWeather(response) {
-    setLoaded(true);
     setIcon(
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
@@ -53,7 +51,7 @@ export default function App() {
                 <p className="currentdate"></p>
                 <p classNames="temperature">
                   <span id="todayTemperature"></span>
-                  <a> Temperature: {Math.round(temperature)}ºC</a>
+                  <p> Temperature: {Math.round(temperature)}ºC</p>
                   <img alt="icon" src={icon} />
                   <span id="condition"></span>
                 </p>
@@ -78,7 +76,11 @@ export default function App() {
         </div>
         <br />
         <small id="footer">
-          <a href="https://github.com/hannavas2022/git-train2" target="_blank">
+          <a
+            href="https://github.com/hannavas2022/git-train2"
+            target="_blank"
+            rel="noreferrer"
+          >
             Open-source code
           </a>
           by Hanna Vasylets
