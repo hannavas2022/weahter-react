@@ -1,13 +1,88 @@
+.App {
+  margin: 20px;
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Merriweather", serif;
+  color: #5a6275;
+}
+form {
+  margin-bottom: 50px;
+}
+#inputtown {
+  width: 500px;
+  padding: 10px;
+  text-align: left;
+  border-radius: 10px;
+  margin: 30px 10px 20px 90px;
+  border: 1px solid #acaeb1;
+}
+#searchbutton {
+  width: 100px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  text-decoration: bold;
+  background-color: #909de2;
+  border-radius: 10px;
+  border: 1px solid #acaeb1;
+}
+.currenttown {
+  color: #5f70cc;
+  text-decoration: bold;
+  font-size: 40px;
+}
+.nextdays {
+  text-decoration: bold;
+  font-size: 16px;
+}
+.currentdate {
+  font-size: 14px;
+}
+.currentdate,
+.currenttown,
+.temperature,
+.humidity,
+.wind,
+.visibility {
+  text-align: left;
+}
+.humidity,
+.wind,
+.visibility,
+.temperature {
+  font-size: 14px;
+}
+.temperature {
+  text-decoration: bold;
+}
+#todayTemperature {
+  font-size: 25px;
+}
+.nextdaystemperatute {
+  font-size: 14px;
+}
+img {
+  height: 80px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#footer {
+  display: block;
+  padding: 10px;
+  text-align: left;
+  margin: 0px 80px;
+}
+.weather-app {
+  border: 1px solid #acaeb1;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 20px 90px;
+}
+.weather-app .active {
+  color: #5a6275;
+  cursor: default;
+}
+.weather-app .active:hover {
+  text-decoration: none;
 }
