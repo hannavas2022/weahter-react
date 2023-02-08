@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-
+import FormatedDate from "./FormatedDate";
 import axios from "axios";
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
   let [wind, setWind] = useState(null);
   let [visibility, setVisibility] = useState(null);
   let [icon, setIcon] = useState("");
-
+  let [date, setDate] = useState("");
   function handleSubmit(event) {
     event.preventDefault();
     let apiKey = "2718952144ed077c12e7c160fb6fc351";
@@ -27,6 +27,7 @@ export default function App() {
     setHumidity(response.data.main.humidity);
     setWind(response.data.wind.speed);
     setVisibility(response.data.visibility / 1000);
+    setDate(new Date(response.data.dt * 1000));
   }
   function changeCity(event) {
     setCity(event.target.value);
@@ -48,10 +49,12 @@ export default function App() {
             <div classNames="row row-cols-7">
               <div className="col-3">
                 <p className="currenttown"></p>
-                <p className="currentdate"></p>
+                <p className="currentdate">
+                  <FormatedDate date={showWeather.date} />
+                </p>
                 <p classNames="temperature">
                   <span id="todayTemperature"></span>
-                  <p> Temperature: {Math.round(temperature)}ºC</p>
+                  <p> Temperature: {Math.round(temperature)}º C</p>
                   <img alt="icon" src={icon} />
                   <span id="condition"></span>
                 </p>
@@ -76,14 +79,14 @@ export default function App() {
         </div>
         <br />
         <small id="footer">
+          This project was coded by Hanna Vasylets and is
           <a
             href="https://github.com/hannavas2022/git-train2"
             target="_blank"
             rel="noreferrer"
           >
-            Open-source code
+            Open-sourced on GitHub
           </a>
-          by Hanna Vasylets
         </small>
       </div>
     </>
