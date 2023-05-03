@@ -59,7 +59,7 @@ export default function Weather(props) {
           <div className="weather-app">
             <div className="row">
               <div className="col-6">
-                <h1 id="city">{weatherData.city}</h1>
+                <h1 className="currenttown">{weatherData.city}</h1>
               </div>
               <div className="col-6">
                 <div className="d-flex weather-temperature">
@@ -79,11 +79,9 @@ export default function Weather(props) {
             </div>
             <div className="row">
               <div className="col-6">
-                <ul>
-                  <li id="date">
-                    <FormattedDate date={weatherData.date} />
-                  </li>
-                </ul>
+                <p className="currentdate">
+                  <FormattedDate date={weatherData.date} />
+                </p>
               </div>
               <div className="col-6">
                 visibility: <span id="humidity">{weatherData.visibility}</span>
