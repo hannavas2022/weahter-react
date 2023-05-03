@@ -57,46 +57,37 @@ export default function Weather(props) {
         </form>
         <div className="Currentweather">
           <div className="weather-app">
-            <div className="row">
-              <div className="col-6">
+            <div className="row row-cols-7">
+              <div className="col-3">
                 <h1 className="currenttown">{weatherData.city}</h1>
-              </div>
-              <div className="col-6">
-                <div className="d-flex weather-temperature">
-                  <h2 className="temperature">
-                    <img
-                      id="icon"
-                      alt="Partly Cloudy"
-                      src={weatherData.icon}
-                      className="d-flex"
-                    />
-                    <span id="current-temperature">
-                      <WeatherTemperature celsius={weatherData.temperature} />
-                    </span>
-                  </h2>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-6">
                 <p className="currentdate">
                   <FormattedDate date={weatherData.date} />
                 </p>
-              </div>
-              <div className="col-6">
-                visibility: <span id="humidity">{weatherData.visibility}</span>
-                km
-              </div>
-            </div>
-            <div className="data-weather">
-              <div className="row">
-                <div className="col-6">
-                  Humidity: <span id="humidity">{weatherData.humidity}</span>%
-                </div>
-                <div className="col-6">
-                  Wind: <span id="wind">{Math.round(weatherData.wind)}</span>{" "}
-                  m/s
-                </div>
+                <h2 className="temperature">
+                  <img
+                    className="icon"
+                    alt="Partly Cloudy"
+                    src={weatherData.icon}
+                    id="d-flex"
+                  />
+                  <span className="current-temperature">
+                    <WeatherTemperature celsius={weatherData.temperature} />
+                  </span>
+                </h2>
+                <p>
+                  Humidity:{" "}
+                  <span className="humidity">{weatherData.humidity}</span>%
+                </p>
+                <p>
+                  Wind:{" "}
+                  <span className="wind">{Math.round(weatherData.wind)}</span>{" "}
+                  km/h
+                </p>
+                <p>
+                  Visibility:{" "}
+                  <span className="visibility">{weatherData.visibility}</span>
+                  km
+                </p>
               </div>
             </div>
           </div>
