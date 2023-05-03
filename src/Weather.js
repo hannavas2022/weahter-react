@@ -16,7 +16,8 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000),
       visibility: response.data.visibility / 1000,
-      icon: response.data.weather[0].icon,
+      description: response.data.weather[0].description,
+      iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}`,
       wind: response.data.wind.speed,
       city: response.data.name,
     });
@@ -65,10 +66,9 @@ export default function Weather(props) {
                 </p>
                 <h2 className="temperature">
                   <img
-                    className="icon"
-                    alt="Partly Cloudy"
-                    src={weatherData.icon}
-                    id="d-flex"
+                    src={weatherData.iconUrl}
+                    alt={weatherData.description}
+                    className="d-flex"
                   />
                   <span className="current-temperature">
                     <WeatherTemperature celsius={weatherData.temperature} />
