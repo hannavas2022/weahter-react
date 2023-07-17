@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import WeatherTemperature from "./WeatherTemperature";
 import "./index.css";
 import FormattedDate from "./FormattedDate";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -88,6 +89,9 @@ export default function Weather(props) {
                   <span className="visibility">{weatherData.visibility}</span>
                   km
                 </p>
+              </div>
+              <div className="col">
+                <WeatherForecast />
               </div>
             </div>
           </div>

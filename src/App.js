@@ -2,6 +2,7 @@ import React from "react";
 import "./index.css";
 
 import Weather from "./Weather";
+
 import Footer from "./Footer";
 
 export default function App() {
