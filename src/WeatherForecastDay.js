@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+
 export default function WeatherForecastDay(props) {
   function maxTemp() {
     let temperature = Math.round(props.data.temp.max);
