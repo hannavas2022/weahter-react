@@ -1,28 +1,29 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "bootstrap/dist/css/bootstrap.css";
+import WeatherForecastDay from "./WeatherForecastDay";
 import "./index.css";
 
 export default function WeatherForecast(props) {
-  function handleResponse(response) {
-    console.log(response.data);
-  }
-  const apiKey = "aa09763d916df0424c840d55bfc2d2c9";
-  let lat = props.coordinates.lat;
-  let lon = props.coordinates.lon;
-  let apiLink = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
 
-  axios.get(apiLink).then(handleResponse);
-  return (
-    <div>
-      <p className="nextdays">
-        Sun
-        <br />
-        18 Sep
-      </p>
-      <img src="suncloud.jpg" alt="SunCloud" className="d-flex" />
-      <p className="nextdaystemperatute">+22°C</p>
-      <p classNAme="nextdaystemperatute">+8°C</p>
-    </div>
-  );
+  function handleResponse(response) {
+    setForecast(response.data.daily);
+    setLoaded(true);
+    console.log(response.data.daily);
+  }
+  if (loaded) {
+    return (
+      <div>
+        <WeatherForecastDay data={forecast[0]} />
+      </div>
+    );
+  } else {
+    const apiKey = "502dc8f7ae36e57af1974e18d16a86f8";
+    let lat = props.coordinates.lat;
+    let lon = props.coordinates.lon;
+    let apiLink = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiLink).then(handleResponse);
+    return null;
+  }
 }
